@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     :root {
-      --bg: #1e1b16;;
+      --bg: #1e1b16;
       --text: #ecebe4;
       --highlight: #88b04b;
       --button: #6f8f3e;
@@ -18,17 +18,11 @@
       --accent: #aec17d;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       font-family: 'Segoe UI', sans-serif;
-     
+      background-color: var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
@@ -38,24 +32,21 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
     }
 
     .intro-screen {
       height: 100vh;
       width: 100%;
-      background: #1e1b16;
-      color: var(--text);
+      background: var(--bg);
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 2.5rem;
-      text-align: center;
       flex-direction: column;
+      cursor: pointer;
       z-index: 2;
       position: relative;
-      cursor: pointer;
     }
 
     .container {
@@ -64,7 +55,6 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       padding: 60px 20px;
     }
@@ -74,56 +64,35 @@
       flex-direction: column;
       align-items: center;
       gap: 40px;
-      text-align: center;
       max-width: 1200px;
+      text-align: center;
     }
 
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
-        text-align: left;
-        align-items: flex-start;
         justify-content: space-between;
+        text-align: left;
       }
     }
 
-    .text-block {
-      max-width: 500px;
-    }
-
-    .text-block h1 {
-      font-size: 3rem;
-      line-height: 1.2;
-    }
-
-    .highlight {
-      color: var(--highlight);
-    }
-
-    .subtext {
-      color: #c6c5bd;
-      margin-top: 20px;
-      font-size: 1.2rem;
-    }
+    .text-block { max-width: 500px; }
+    .text-block h1 { font-size: 3rem; line-height: 1.2; }
+    .highlight { color: var(--highlight); }
+    .subtext { color: #c6c5bd; margin-top: 20px; font-size: 1.2rem; }
 
     .app-box {
       background: var(--panel);
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      overflow: hidden;
       max-width: 500px;
-      min-height: 300px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
       transition: transform 0.4s ease;
     }
-
-    .app-box:hover {
-      transform: scale(1.03);
-    }
+    .app-box:hover { transform: scale(1.03); }
 
     .typewriter {
       font-size: 1.1rem;
@@ -138,7 +107,6 @@
       margin-top: 20px;
       gap: 10px;
     }
-
     .link-row a {
       display: block;
       padding: 10px 20px;
@@ -148,11 +116,9 @@
       border-radius: 8px;
       transition: background-color 0.3s ease;
       font-weight: bold;
-      width: fit-content;
       min-width: 160px;
       text-align: center;
     }
-
     .link-row a:hover {
       background-color: var(--button-hover);
       text-shadow: 0 0 5px var(--accent);
@@ -164,13 +130,30 @@
       padding: 20px;
       border-radius: 16px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      max-width: 500px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
     }
-
     .config-preview img {
       width: 100%;
       border-radius: 10px;
-      display: block;
+      margin-bottom: 20px;
+    }
+
+    .project-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .project-gallery img {
+      width: 180px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .project-gallery img:hover {
+      transform: scale(1.05);
     }
 
     .skills-ui-section {
@@ -178,13 +161,11 @@
       padding: 40px 20px;
       text-align: center;
     }
-
     .skills-title {
       font-size: 2rem;
       margin-bottom: 30px;
       color: var(--highlight);
     }
-
     .skills-grid {
       display: grid;
       gap: 20px;
@@ -192,43 +173,39 @@
       margin: 0 auto;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-
     .skill-card {
       background: var(--panel);
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 0 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: left;
+      transition: transform 0.3s ease;
     }
-
     .skill-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.4);
     }
-
     .skill-card h3 {
       color: var(--accent);
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
-
     .skill-card p {
       color: #ccc;
       font-size: 0.95rem;
     }
 
-    audio {
-      display: none;
-    }
+    audio { display: none; }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
   <audio id="music" src="msc.mp3" loop></audio>
+
   <div class="intro-screen" id="introScreen">
     <h1 id="status_text" class="animate__animated">Klick mich <span class="highlight">jetzt!</span></h1>
   </div>
+
   <div class="main-content" id="mainContent" style="display: none;">
     <div class="container">
       <div class="hero">
@@ -237,7 +214,7 @@
           <div class="typewriter" id="typElement"></div>
         </div>
         <div class="app-box animate__animated" id="appBox">
-          <img src="https://avatars.githubusercontent.com/u/222221741?s=400&u=1b9cd61cfb3cac4f996b95a45e721ec92f8afcca&v=4" alt="Vorschau" style="max-width: 30%; border-radius: 12px;" />
+          <img src="https://avatars.githubusercontent.com/u/222221741?v=4" alt="Vorschau" style="max-width: 30%; border-radius: 12px;" />
           <div class="link-row" id="links">
             <a href="https://github.com/Juliomqs0100" target="_blank">🔗 GitHub</a>
             <a href="https://discord.com/users/turtlebeam1hd" target="_blank">💼 Discord</a>
@@ -245,24 +222,33 @@
           </div>
         </div>
       </div>
+
       <div class="config-preview animate__animated animate__fadeInUp">
-        <img src="config-preview.png" alt="Config UI Vorschau" />
+        <h2 class="skills-title">Haupt Projekt</h2>
+        <img src="config-preview.png" alt="Haupt Projekt Screenshot" />
+        <div class="project-gallery">
+          <img src="project1.png" alt="Project 1" />
+          <img src="project2.png" alt="Project 2" />
+          <img src="project3.png" alt="Project 3" />
+        </div>
       </div>
+
       <div class="skills-ui-section animate__animated animate__fadeInUp">
         <h2 class="skills-title">Meine Skills</h2>
         <div class="skills-grid">
           <div class="skill-card"><h3>Lua</h3><p>Game-Scripting, Automatisierung, eingebettete Systeme</p></div>
-          <div class="skill-card"><h3>UI/UX Thinking</h3><p>Minimalistische Interfaces mit Fokus auf experience.</p></div>
+          <div class="skill-card"><h3>UI/UX Thinking</h3><p>Minimalistische Interfaces mit Fokus auf Experience</p></div>
           <div class="skill-card"><h3>Git & Collaboration</h3><p>Versionskontrolle, Branching und Teamprozesse</p></div>
           <div class="skill-card"><h3>RESTful API Design</h3><p>Eigene Lua-API für DLL-Modifikationen</p></div>
-          <div class="skill-card"><h3>Clean Code</h3><p>Nach KISS, DRY & SOLID mit Fokus auf Wartbarkeit.</p></div>
-          <div class="skill-card"><h3>Deployment</h3><p>Bereitstellung über GitHub Pages, Netlify und Vercel.</p></div>
-          <div class="skill-card"><h3>Responsive Design</h3><p>C++-Projekt mit Lua, JS und Datenbankverbindungen</p></div>
-          <div class="skill-card"><h3>Custom Animations</h3><p>Design für Web und .exe-Anwendungen</p></div>
+          <div class="skill-card"><h3>Clean Code</h3><p>KISS, DRY & SOLID Prinzipien</p></div>
+          <div class="skill-card"><h3>Deployment</h3><p>Bereitstellung über GitHub Pages, Netlify und Vercel</p></div>
+          <div class="skill-card"><h3>Responsive Design</h3><p>JS + C++ Frontends mit Datenbank-Verknüpfung</p></div>
+          <div class="skill-card"><h3>Custom Animations</h3><p>Für Web und native Anwendungen</p></div>
         </div>
       </div>
     </div>
   </div>
+
   <script>
     const intro = document.getElementById("introScreen");
     const music = document.getElementById("music");
@@ -285,14 +271,11 @@
 
     function startTypewriter() {
       const strings = [
-        "German/Portuguese Tech enthusiast focused on software development..",
-        "Languages: Java, C++, HTML",
-        "Projects: #repo"
+        "German/Portuguese Tech enthusiast focused on software development...",
+        "Languages: Java, C++, HTML, Lua",
+        "Projects: github.com/Juliomqs0100"
       ];
-      let tw = new Typewriter(typElement, {
-        loop: true,
-        delay: 75
-      });
+      let tw = new Typewriter(typElement, { loop: true, delay: 75 });
       strings.forEach(str => {
         tw.typeString(str).pauseFor(3000).deleteAll().pauseFor(500);
       });
