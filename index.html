@@ -1,260 +1,143 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Willkommen Nutzer!</title>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <audio id="music" src="msc.mp3" autoplay loop style="display: none;"></audio>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
-    <style>
-        /* Hintergrund mit animierter Farbe */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(270deg, #1a2a6c, #b21f1f, #fdbb2d);
-            background-size: 600% 600%;
-            animation: gradientBG 20s ease infinite;
-            color: #fff;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <title>Willkommen Nutzer!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f1116;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-            50% {
-                background-position: 100% 50%;
-            }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      padding: 60px 20px;
+    }
 
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px;
+    }
 
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            flex-direction: column;
-        }
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 100px;
+      }
+    }
 
-        #overlay {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 60px;
-            transition: 0.3s ease-in-out;
-            cursor: pointer;
-        }
+    .text-block {
+      max-width: 500px;
+    }
 
-        #overlay:hover {
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-            transform: scale(1.02);
-        }
+    .text-block h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
 
-        .header {
-            font-size: 3rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-        }
+    .highlight {
+      color: #ff3c3c;
+      font-weight: bold;
+    }
 
-        .textiboi {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            color: #ddd;
-            transition: 0.2s ease-in-out;
-        }
+    .subtext {
+      color: #aaa;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
 
-        a {
-            text-decoration: none;
-            color: #00fff7;
-            margin: 0 10px;
-            font-weight: bold;
-            position: relative;
-        }
+    .button {
+      margin-top: 30px;
+      padding: 14px 28px;
+      background-color: #ff3c3c;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        a:hover {
-            color: #fff;
-            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
-        }
+    .button:hover {
+      background-color: #e42f2f;
+    }
 
-        a::after {
-            content: '';
-            display: block;
-            height: 2px;
-            background: #00fff7;
-            transition: width 0.3s;
-            width: 0;
-            margin-top: 5px;
-        }
+    .app-box {
+      background: #1c1f26;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      overflow: hidden;
+      width: 100%;
+      max-width: 500px;
+      transition: transform 0.4s ease;
+    }
 
-        a:hover::after {
-            width: 100%;
-        }
+    .app-box:hover {
+      transform: scale(1.03);
+    }
 
-        .begin {
-            animation: pulseText 2s infinite;
-        }
+    .app-image {
+      width: 100%;
+      display: block;
+    }
 
-        @keyframes pulseText {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .animated {
-            animation-duration: 1s;
-            animation-fill-mode: both;
-        }
-
-        .delay-2s {
-            animation-delay: 2s;
-        }
-
-        /* Du kannst animate.css von außen weiterladen */
-    </style>
-    <link rel="stylesheet" href="animate.css">
+    .footer-logos {
+      margin-top: 60px;
+      opacity: 0.5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="main" class="center">
-        <div id="overlay" onclick="music.play(); addStuff();"><span class="header center" id="status_text"></span></div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="text-block">
+        <h1>Lists with <span class="highlight">Superpowers</span></h1>
+        <p class="subtext">Willkommen zu meiner persönlichen Testseite & Bewerbung. Alles in einem coolen Stil gebaut, der auffällt.</p>
+        <button class="button" onclick="alert('Danke fürs Klicken!')">Start today for free</button>
+      </div>
+
+      <div class="app-box">
+        <img src="https://via.placeholder.com/600x400/1c1f26/ffffff?text=Julio+Marques+App+Vorschau" alt="App-Vorschau" class="app-image">
+      </div>
     </div>
 
-    <script>
-        function handleAnimations() {
-            let animations = [
-                ["bounce", "bounce"],
-                ["flash", "flash"],
-                ["pulse", "pulse"],
-                ["shake", "shake"],
-                ["headShake", "headShake"],
-                ["swing", "swing"],
-                ["tada", "tada"],
-                ["wobble", "wobble"],
-                ["jello", "jello"],
-                ["heartBeat", "heartBeat"],
-                ["bounceIn", "bounceIn"],
-                ["bounceInDown", "bounceInUp"],
-                ["bounceInLeft", "bounceInRight"],
-                ["fadeIn", "fadeIn"],
-                ["fadeInDown", "fadeInUp"],
-                ["fadeInLeft", "fadeInRight"],
-                ["flip", "flip"],
-                ["flipInX", "flipInX"],
-                ["flipInY", "flipInY"],
-                ["rotateIn", "rotateIn"],
-                ["rotateInDownLeft", "rotateInDownRight"],
-                ["slideInDown", "slideInUp"],
-                ["slideInLeft", "slideInRight"],
-                ["zoomIn", "zoomIn"],
-                ["zoomInDown", "zoomInUp"],
-                ["zoomInLeft", "zoomInRight"],
-                ["jackInTheBox", "jackInTheBox"],
-            ];
+    <div class="footer-logos">
+      <span>GitHub</span>
+      <span>Spotify</span>
+      <span>Google</span>
+      <span>NVIDIA</span>
+    </div>
+  </div>
 
-            var num = getRandomInt(animations.length);
-
-            animateCSS('[name="top"]', animations[num][0], animationOver);
-            animateCSS('[name="bottom"]', animations[num][1], animationOver);
-        }
-
-        function addStuff() {
-            at("main").innerHTML =
-                `<h1 name="top" id="status_text" class="header animated"><a href="">Julio Marques</a></h1>
-                <p name="bottom" id="text2" class="textiboi animated">test_seite_julio</p>`;
-
-            handleAnimations();
-        }
-
-        function animateCSS(element, animationName, callback) {
-            const node = document.querySelector(element)
-            node.classList.add('animated', animationName)
-            node.classList.add('delay-2s')
-
-            function handleAnimationEnd() {
-                node.classList.remove('animated', animationName)
-                node.removeEventListener('animationend', handleAnimationEnd)
-
-                if (typeof callback === 'function') callback()
-            }
-
-            node.addEventListener('animationend', handleAnimationEnd)
-        }
-
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-
-        var at = document.getElementById.bind(document);
-
-        window.addEventListener("DOMContentLoaded", () => {
-            at("status_text").innerHTML = "starte bewerbung";
-        });
-
-        window.addEventListener("load", () => {
-            setTimeout(() => {
-                if (!window.music.paused) {
-                    addStuff();
-                    return;
-                }
-                at("status_text").innerHTML = "Willkommen zu meiner Bewerbung ";
-                at("status_text").innerHTML = "drücken Sie auf diesen Text ";
-                at("status_text").classList.add("begin");
-            }, 100);
-        });
-
-        var temp = 0;
-
-        function animationOver() {
-            temp++;
-            if (temp != 2) return;
-
-            setTimeout(function () {
-                var doc = document.getElementById("main");
-                doc.innerHTML +=
-                    `<div class="textiboi"><a id="typElement"></a></div>
-                    <div class="textiboi">
-                        <a class="textiboi animated fadeIn" href="https://github.com/Juliomqs0100">Github</a>
-                        <a class="textiboi animated fadeIn" href="#">LinkedIn</a>
-                        <a class="textiboi animated fadeIn" href="#">Portfolio</a>
-                    </div>`;
-                indefiniteWrite();
-            }, 550);
-        }
-
-        function indefiniteWrite() {
-            let strs = [
-                "Welcome to this test website",
-            ];
-
-            var num = getRandomInt(strs.length);
-            var typElement = document.getElementById('typElement');
-
-            var typewriter = new Typewriter(typElement, {
-                loop: true
-            });
-
-            typewriter.typeString(strs[num]).pauseFor(5000).deleteAll().pauseFor(100).callFunction(() => {
-                typewriter.stop();
-                indefiniteWrite();
-            }).start();
-        }
-    </script>
 </body>
-
 </html>
