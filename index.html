@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <title>Julio Marques – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- animate.css -->
+  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <!-- Typewriter -->
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     :root {
       --bg: #2e2b25;
@@ -20,19 +22,33 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    body {
+    body, html {
+      width: 100%;
+      height: 100%;
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
 
+    /* Hintergrund-Netz */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
     .container {
+      position: relative;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -132,7 +148,6 @@
       color: var(--accent);
       text-decoration: none;
       font-weight: bold;
-      position: relative;
     }
 
     .link-row a:hover {
@@ -161,6 +176,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Partikel-Hintergrund -->
+  <div id="particles-js"></div>
 
   <audio id="music" src="msc.mp3" loop></audio>
 
@@ -230,6 +248,68 @@
 
       tw.start();
     }
+
+    // Particles.js konfigurieren
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 50,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#88b04b"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.4
+        },
+        "size": {
+          "value": 3
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#88b04b",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "bounce": true
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": false
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 0.7
+            }
+          }
+        }
+      },
+      "retina_detect": true
+    });
   </script>
 
 </body>
