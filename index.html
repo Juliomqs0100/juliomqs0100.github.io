@@ -42,6 +42,22 @@
       left: 0;
     }
 
+    .intro-screen {
+      height: 100vh;
+      width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      text-align: center;
+      flex-direction: column;
+      z-index: 2;
+      position: relative;
+      cursor: pointer;
+    }
+
     .container {
       position: relative;
       z-index: 1;
@@ -73,7 +89,6 @@
 
     .text-block {
       max-width: 500px;
-      cursor: pointer;
     }
 
     .text-block h1 {
@@ -214,81 +229,62 @@
 
   <audio id="music" src="msc.mp3" loop></audio>
 
-  <div class="container">
-    <div class="hero">
-      <div class="text-block" id="overlay">
-        <h1 id="status_text" class="animate__animated">Klick mich <span class="highlight">jetzt!</span></h1>
-        <p class="subtext">Willkommen zu meiner animierten Bewerbung! Tippe auf den Text, um zu starten.</p>
-        <div class="typewriter" id="typElement"></div>
+  <!-- Intro -->
+  <div class="intro-screen" id="introScreen">
+    <h1 id="status_text" class="animate__animated">Klick mich <span class="highlight">jetzt!</span></h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent" style="display: none;">
+    <div class="container">
+      <div class="hero">
+        <div class="text-block">
+          <p class="subtext">Willkommen zu meiner animierten Bewerbung! Danke fürs Vorbeischauen.</p>
+          <div class="typewriter" id="typElement"></div>
+        </div>
+        <div class="app-box animate__animated" id="appBox">
+          <img src="https://via.placeholder.com/400x250/2e2b25/ffffff?text=Julio+Marques" alt="Vorschau" style="max-width: 100%; border-radius: 12px;" />
+          <div class="link-row" id="links">
+            <a href="https://github.com/Juliomqs0100" target="_blank">🔗 GitHub</a>
+            <a href="#">💼 LinkedIn</a>
+            <a href="#">🌐 Mehr Infos</a>
+          </div>
+        </div>
       </div>
 
-      <div class="app-box animate__animated" id="appBox">
-        <img src="https://via.placeholder.com/400x250/2e2b25/ffffff?text=Julio+Marques" alt="Vorschau" style="max-width: 100%; border-radius: 12px;" />
-        <div class="link-row" id="links">
-          <a href="https://github.com/Juliomqs0100" target="_blank">🔗 GitHub</a>
-          <a href="#">💼 LinkedIn</a>
-          <a href="#">🌐 Mehr Infos</a>
-        </div>
+      <div class="config-preview animate__animated animate__fadeInUp">
+        <img src="config-preview.png" alt="Config UI Vorschau" />
       </div>
-    </div>
 
-    <div class="config-preview animate__animated animate__fadeInUp">
-      <img src="config-preview.png" alt="Config UI Vorschau" />
-    </div>
-
-    <div class="skills-ui-section animate__animated animate__fadeInUp">
-      <h2 class="skills-title">Meine Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>JavaScript Mastery</h3>
-          <p>Komplexe Frontend-Logik mit Frameworks wie Vue und Vanilla DOM-Optimierung.</p>
-        </div>
-        <div class="skill-card">
-          <h3>UI/UX Thinking</h3>
-          <p>Minimalistische, klare Benutzeroberflächen mit hoher Nutzbarkeit.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Git & Collaboration</h3>
-          <p>Teamarbeit mit Branching, Pull Requests und Continuous Integration.</p>
-        </div>
-        <div class="skill-card">
-          <h3>RESTful API Design</h3>
-          <p>Performante Schnittstellen mit Node.js und Express strukturiert entwickeln.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Clean Code</h3>
-          <p>Nach KISS-, DRY- und SOLID-Prinzipien programmieren & refactoren.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Deployment</h3>
-          <p>Live-Stellung via GitHub Pages, Netlify oder Vercel – effizient & einfach.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Responsive Design</h3>
-          <p>Mobile-first Websites, die auf allen Geräten wunderschön funktionieren.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Custom Animations</h3>
-          <p>Eigene CSS/JS-Effekte für Scroll, Hover & Ladeanimationen.</p>
+      <div class="skills-ui-section animate__animated animate__fadeInUp">
+        <h2 class="skills-title">Meine Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>JavaScript Mastery</h3><p>Komplexe Frontend-Logik mit Vue, Vanilla & DOM-Optimierung.</p></div>
+          <div class="skill-card"><h3>UI/UX Thinking</h3><p>Minimalistische Interfaces mit Fokus auf Nutzerführung.</p></div>
+          <div class="skill-card"><h3>Git & Collaboration</h3><p>Versionskontrolle, Branching und Teamprozesse im Griff.</p></div>
+          <div class="skill-card"><h3>RESTful API Design</h3><p>Strukturierte JSON-APIs mit Node.js und Express.</p></div>
+          <div class="skill-card"><h3>Clean Code</h3><p>Nach KISS, DRY & SOLID mit Fokus auf Wartbarkeit.</p></div>
+          <div class="skill-card"><h3>Deployment</h3><p>Bereitstellung über GitHub Pages, Netlify und Vercel.</p></div>
+          <div class="skill-card"><h3>Responsive Design</h3><p>Mobile First – optimiert für alle Bildschirmgrößen.</p></div>
+          <div class="skill-card"><h3>Custom Animations</h3><p>Scroll-, Hover- und Ladeanimationen mit Stil.</p></div>
         </div>
       </div>
     </div>
   </div>
 
   <script>
+    const intro = document.getElementById("introScreen");
     const music = document.getElementById("music");
-    const overlay = document.getElementById("overlay");
-    const statusText = document.getElementById("status_text");
+    const main = document.getElementById("mainContent");
     const appBox = document.getElementById("appBox");
     const links = document.getElementById("links");
     const typElement = document.getElementById("typElement");
+    const statusText = document.getElementById("status_text");
 
-    let hasStarted = false;
-
-    overlay.addEventListener("click", () => {
-      if (hasStarted) return;
-      hasStarted = true;
+    intro.addEventListener("click", () => {
       music.play();
+      intro.style.display = "none";
+      main.style.display = "block";
       statusText.innerText = "Julio Marques";
       statusText.classList.add("highlight", "animate__fadeInDown");
       appBox.classList.add("animate__fadeInUp");
@@ -306,14 +302,9 @@
         loop: true,
         delay: 75
       });
-
       strings.forEach(str => {
-        tw.typeString(str)
-          .pauseFor(3000)
-          .deleteAll()
-          .pauseFor(500);
+        tw.typeString(str).pauseFor(3000).deleteAll().pauseFor(500);
       });
-
       tw.start();
     }
 
@@ -357,6 +348,5 @@
       retina_detect: true
     });
   </script>
-
 </body>
 </html>
