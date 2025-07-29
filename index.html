@@ -1,14 +1,132 @@
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
-
+    <meta charset="UTF-8">
     <title>Willkommen Nutzer!</title>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <audio id="music" src="msc.mp3" autoplay loop onplaying="" style="display: none;"></audio>
+    <audio id="music" src="msc.mp3" autoplay loop style="display: none;"></audio>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hintergrund mit animierter Farbe */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(270deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 600% 600%;
+            animation: gradientBG 20s ease infinite;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        #overlay {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px;
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        #overlay:hover {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        .header {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        .textiboi {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #ddd;
+            transition: 0.2s ease-in-out;
+        }
+
+        a {
+            text-decoration: none;
+            color: #00fff7;
+            margin: 0 10px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+        }
+
+        a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #00fff7;
+            transition: width 0.3s;
+            width: 0;
+            margin-top: 5px;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        .begin {
+            animation: pulseText 2s infinite;
+        }
+
+        @keyframes pulseText {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .delay-2s {
+            animation-delay: 2s;
+        }
+
+        /* Du kannst animate.css von außen weiterladen */
+    </style>
     <link rel="stylesheet" href="animate.css">
 </head>
 
@@ -16,6 +134,7 @@
     <div id="main" class="center">
         <div id="overlay" onclick="music.play(); addStuff();"><span class="header center" id="status_text"></span></div>
     </div>
+
     <script>
         function handleAnimations() {
             let animations = [
@@ -52,14 +171,12 @@
 
             animateCSS('[name="top"]', animations[num][0], animationOver);
             animateCSS('[name="bottom"]', animations[num][1], animationOver);
-            console.log("top: " + animations[num][0]);
-            console.log("bottom: " + animations[num][1]);
         }
 
         function addStuff() {
             at("main").innerHTML =
-                `<h1 name="top"    id = "status_text" class="header animated"><a href="">Julio Marques</a></h1>
-            <p  name="bottom" id = "text2" class="textiboi animated">test_seite_julio</p>`;
+                `<h1 name="top" id="status_text" class="header animated"><a href="">Julio Marques</a></h1>
+                <p name="bottom" id="text2" class="textiboi animated">test_seite_julio</p>`;
 
             handleAnimations();
         }
@@ -82,66 +199,50 @@
         function getRandomInt(max) {
             return Math.floor(Math.random() * Math.floor(max));
         }
+
         var at = document.getElementById.bind(document);
+
         window.addEventListener("DOMContentLoaded", () => {
             at("status_text").innerHTML = "starte bewerbung";
-
         });
 
         window.addEventListener("load", () => {
             setTimeout(() => {
                 if (!window.music.paused) {
                     addStuff();
-                    console.log("music already started");
                     return;
                 }
-                at("status_text").innerHTML = "Willkomen zu meiner Bewerbung ";
-		      at("status_text").innerHTML = "drücken Sie auf diesen text ";
+                at("status_text").innerHTML = "Willkommen zu meiner Bewerbung ";
+                at("status_text").innerHTML = "drücken Sie auf diesen Text ";
                 at("status_text").classList.add("begin");
-
             }, 100);
         });
 
-        var temp = 0
+        var temp = 0;
 
         function animationOver() {
             temp++;
+            if (temp != 2) return;
 
-            if (temp != 2)
-                return;
-
-            setTimeout(function() {
-                console.log("animations over");
+            setTimeout(function () {
                 var doc = document.getElementById("main");
-                var inner = doc.innerHTML;
-                
-
                 doc.innerHTML +=
-                    `<div class="textiboi">
-                <a id="typElement"></a></div>
-                <div class="textiboi">
-				
-				<a class="textiboi animated fadeIn"  href="https://github.com/Juliomqs0100">Github</a>
-				<a class="textiboi animated fadeIn"  href="</a>
-                <a class="textiboi animated fadeIn"  href="a>`;
-                console.log("running typewrite");
+                    `<div class="textiboi"><a id="typElement"></a></div>
+                    <div class="textiboi">
+                        <a class="textiboi animated fadeIn" href="https://github.com/Juliomqs0100">Github</a>
+                        <a class="textiboi animated fadeIn" href="#">LinkedIn</a>
+                        <a class="textiboi animated fadeIn" href="#">Portfolio</a>
+                    </div>`;
                 indefiniteWrite();
-
             }, 550);
-
         }
 
         function indefiniteWrite() {
             let strs = [
-               
                 "Welcome to this test website",
-               
-            ]; 
+            ];
 
             var num = getRandomInt(strs.length);
-
-            console.log("writing " + strs[num]);
-
             var typElement = document.getElementById('typElement');
 
             var typewriter = new Typewriter(typElement, {
