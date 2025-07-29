@@ -2,8 +2,12 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Willkommen Nutzer!</title>
+  <title>Julio Marques – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- Typewriter -->
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -15,41 +19,39 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #0f1116;
       color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
       overflow-x: hidden;
     }
 
     .container {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: left;
       padding: 60px 20px;
     }
 
     .hero {
       display: flex;
       flex-direction: column;
-      max-width: 1200px;
-      width: 100%;
-      justify-content: space-between;
       align-items: center;
-      gap: 60px;
+      gap: 40px;
+      text-align: center;
+      max-width: 1200px;
     }
 
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
+        text-align: left;
         align-items: flex-start;
-        gap: 100px;
+        justify-content: space-between;
       }
     }
 
     .text-block {
       max-width: 500px;
+      cursor: pointer;
     }
 
     .text-block h1 {
@@ -59,14 +61,12 @@
 
     .highlight {
       color: #ff3c3c;
-      font-weight: bold;
     }
 
     .subtext {
       color: #aaa;
       margin-top: 20px;
-      font-size: 1.1rem;
-      line-height: 1.5;
+      font-size: 1.2rem;
     }
 
     .button {
@@ -91,8 +91,13 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       overflow: hidden;
-      width: 100%;
       max-width: 500px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transform: scale(1);
       transition: transform 0.4s ease;
     }
 
@@ -100,44 +105,107 @@
       transform: scale(1.03);
     }
 
-    .app-image {
-      width: 100%;
-      display: block;
+    .typewriter {
+      font-size: 1.1rem;
+      color: #00fff7;
+      margin-top: 20px;
     }
 
-    .footer-logos {
-      margin-top: 60px;
-      opacity: 0.5;
+    .link-row {
       display: flex;
+      gap: 20px;
+      margin-top: 20px;
       flex-wrap: wrap;
-      gap: 30px;
       justify-content: center;
-      font-size: 1.2rem;
+    }
+
+    .link-row a {
+      color: #00fff7;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .link-row a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
+  <audio id="music" src="msc.mp3" loop></audio>
+
   <div class="container">
     <div class="hero">
-      <div class="text-block">
-        <h1>Lists with <span class="highlight">Superpowers</span></h1>
-        <p class="subtext">Willkommen zu meiner persönlichen Testseite & Bewerbung. Alles in einem coolen Stil gebaut, der auffällt.</p>
-        <button class="button" onclick="alert('Danke fürs Klicken!')">Start today for free</button>
+      <div class="text-block" id="overlay">
+        <h1 id="status_text" class="animate__animated">Klick mich <span class="highlight">jetzt!</span></h1>
+        <p class="subtext">Willkommen zu meiner animierten Bewerbung! Tippe auf den Text, um zu starten.</p>
+        <div class="typewriter" id="typElement"></div>
+        <div class="link-row" id="links" style="display:none;">
+          <a href="https://github.com/Juliomqs0100" target="_blank">GitHub</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Mehr Infos</a>
+        </div>
       </div>
-
-      <div class="app-box">
-        <img src="https://via.placeholder.com/600x400/1c1f26/ffffff?text=Julio+Marques+App+Vorschau" alt="App-Vorschau" class="app-image">
+      <div class="app-box animate__animated" id="appBox">
+        <img src="https://via.placeholder.com/400x250/1c1f26/ffffff?text=Julio+Marques" alt="Vorschau" style="max-width: 100%; border-radius: 12px;">
       </div>
-    </div>
-
-    <div class="footer-logos">
-      <span>GitHub</span>
-      <span>Spotify</span>
-      <span>Google</span>
-      <span>NVIDIA</span>
     </div>
   </div>
+
+  <script>
+    const music = document.getElementById("music");
+    const overlay = document.getElementById("overlay");
+    const statusText = document.getElementById("status_text");
+    const appBox = document.getElementById("appBox");
+    const links = document.getElementById("links");
+    const typElement = document.getElementById("typElement");
+
+    let hasStarted = false;
+
+    overlay.addEventListener("click", () => {
+      if (hasStarted) return;
+
+      hasStarted = true;
+      music.play();
+
+      statusText.innerText = "Julio Marques";
+      statusText.classList.add("highlight", "animate__fadeInDown");
+      appBox.classList.add("animate__fadeInUp");
+
+      // Links anzeigen
+      links.style.display = "flex";
+
+      // Typewriter starten
+      startTypewriter();
+    });
+
+    function startTypewriter() {
+      const strings = [
+        "Webentwickler mit Leidenschaft.",
+        "HTML, CSS, JavaScript – und Style.",
+        "Danke fürs Vorbeischauen!"
+      ];
+      let tw = new Typewriter(typElement, {
+        loop: true,
+        delay: 75
+      });
+
+      strings.forEach(str => {
+        tw.typeString(str)
+          .pauseFor(3000)
+          .deleteAll()
+          .pauseFor(500);
+      });
+
+      tw.start();
+    }
+  </script>
 
 </body>
 </html>
