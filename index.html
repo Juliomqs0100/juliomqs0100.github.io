@@ -233,18 +233,18 @@
         <p class="subtext">Willkommen zu meiner animierten Bewerbung! Tippe auf den Text, um zu starten.</p>
         <div class="typewriter" id="typElement"></div>
         <div class="link-row" id="links" style="display:none;">
-          <a href="https://github.com/Juliomqs0100" target="_blank">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Mehr Infos</a>
+
         </div>
       </div>
       <div class="app-box animate__animated" id="appBox">
-        <img src="https://via.placeholder.com/400x250/2e2b25/ffffff?text=Julio+Marques" alt="Vorschau" style="max-width: 100%; border-radius: 12px;">
+        <img src="https://via.placeholder.com/400x250/2e2b25/ffffff?text=Julio+Marques" alt="<a href="https://github.com/Juliomqs0100" target="_blank">GitHub</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Mehr Infos</a>" style="max-width: 100%; border-radius: 12px;">
       </div>
     </div>
 
     <div class="config-preview animate__animated animate__fadeInUp">
-      <img src="config-preview.png" alt="Config UI Vorschau">
+      <img src="config-preview.png" alt="Danke fürs Vorbeischauen">
     </div>
 
     <!-- Skills Section -->
@@ -311,9 +311,9 @@
 
     function startTypewriter() {
       const strings = [
-        "Webentwickler mit Leidenschaft.",
-        "Design trifft Funktion.",
-        "Danke fürs Vorbeischauen!"
+        "💻 German/Portuguese Tech enthusiast focused on information processing and software development.",
+        "💡 Languages: Java, C++, HTML",
+        "🛠️ Projects: #github"
       ];
       let tw = new Typewriter(typElement, {
         loop: true,
