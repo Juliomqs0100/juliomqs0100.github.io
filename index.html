@@ -9,27 +9,30 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     :root {
-      --bg: #2e2b25;
+      --bg: transparent;
       --text: #ecebe4;
       --highlight: #88b04b;
       --button: #6f8f3e;
       --button-hover: #5a732f;
-      --panel: #3d2c23;
+      --panel: rgba(61, 44, 35, 0.85);
       --accent: #aec17d;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body, html {
+
+    html, body {
       width: 100%;
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
+      background: transparent;
       color: var(--text);
       overflow-x: hidden;
     }
+
     #particles-js {
       position: fixed;
       width: 100%;
@@ -38,10 +41,11 @@
       top: 0;
       left: 0;
     }
+
     .intro-screen {
       height: 100vh;
       width: 100%;
-      background: var(--bg);
+      background: transparent;
       color: var(--text);
       display: flex;
       justify-content: center;
@@ -53,6 +57,7 @@
       position: relative;
       cursor: pointer;
     }
+
     .container {
       position: relative;
       z-index: 1;
@@ -63,6 +68,7 @@
       align-items: center;
       padding: 60px 20px;
     }
+
     .hero {
       display: flex;
       flex-direction: column;
@@ -71,6 +77,7 @@
       text-align: center;
       max-width: 1200px;
     }
+
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
@@ -79,21 +86,26 @@
         justify-content: space-between;
       }
     }
+
     .text-block {
       max-width: 500px;
     }
+
     .text-block h1 {
       font-size: 3rem;
       line-height: 1.2;
     }
+
     .highlight {
       color: var(--highlight);
     }
+
     .subtext {
       color: #c6c5bd;
       margin-top: 20px;
       font-size: 1.2rem;
     }
+
     .app-box {
       background: var(--panel);
       border-radius: 20px;
@@ -108,14 +120,17 @@
       padding: 20px;
       transition: transform 0.4s ease;
     }
+
     .app-box:hover {
       transform: scale(1.03);
     }
+
     .typewriter {
       font-size: 1.1rem;
       color: var(--accent);
       margin-top: 20px;
     }
+
     .link-row {
       display: none;
       flex-direction: column;
@@ -123,6 +138,7 @@
       margin-top: 20px;
       gap: 10px;
     }
+
     .link-row a {
       display: block;
       padding: 10px 20px;
@@ -136,10 +152,12 @@
       min-width: 160px;
       text-align: center;
     }
+
     .link-row a:hover {
       background-color: var(--button-hover);
       text-shadow: 0 0 5px var(--accent);
     }
+
     .config-preview {
       margin-top: 40px;
       background: var(--panel);
@@ -148,21 +166,25 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       max-width: 500px;
     }
+
     .config-preview img {
       width: 100%;
       border-radius: 10px;
       display: block;
     }
+
     .skills-ui-section {
       margin-top: 80px;
       padding: 40px 20px;
       text-align: center;
     }
+
     .skills-title {
       font-size: 2rem;
       margin-bottom: 30px;
       color: var(--highlight);
     }
+
     .skills-grid {
       display: grid;
       gap: 20px;
@@ -170,6 +192,7 @@
       margin: 0 auto;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
+
     .skill-card {
       background: var(--panel);
       border-radius: 16px;
@@ -178,19 +201,23 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: left;
     }
+
     .skill-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.4);
     }
+
     .skill-card h3 {
       color: var(--accent);
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
+
     .skill-card p {
       color: #ccc;
       font-size: 0.95rem;
     }
+
     audio {
       display: none;
     }
@@ -213,8 +240,8 @@
           <img src="https://avatars.githubusercontent.com/u/222221741?s=400&u=1b9cd61cfb3cac4f996b95a45e721ec92f8afcca&v=4" alt="Vorschau" style="max-width: 30%; border-radius: 12px;" />
           <div class="link-row" id="links">
             <a href="https://github.com/Juliomqs0100" target="_blank">🔗 GitHub</a>
-            <a href="turtlebeam1hd">💼 Discord</a>
-            <a href="https://juliomqs0100.github.io">🌐Web reload </a>
+            <a href="https://discord.com/users/turtlebeam1hd" target="_blank">💼 Discord</a>
+            <a href="https://juliomqs0100.github.io">🌐 Web Reload</a>
           </div>
         </div>
       </div>
@@ -227,11 +254,11 @@
           <div class="skill-card"><h3>Lua</h3><p>Game-Scripting, Automatisierung, eingebettete Systeme</p></div>
           <div class="skill-card"><h3>UI/UX Thinking</h3><p>Minimalistische Interfaces mit Fokus auf experience.</p></div>
           <div class="skill-card"><h3>Git & Collaboration</h3><p>Versionskontrolle, Branching und Teamprozesse</p></div>
-          <div class="skill-card"><h3>RESTful API Design</h3><p>Eigene Lua-api für dllmodificationsdateien</p></div>
+          <div class="skill-card"><h3>RESTful API Design</h3><p>Eigene Lua-API für DLL-Modifikationen</p></div>
           <div class="skill-card"><h3>Clean Code</h3><p>Nach KISS, DRY & SOLID mit Fokus auf Wartbarkeit.</p></div>
           <div class="skill-card"><h3>Deployment</h3><p>Bereitstellung über GitHub Pages, Netlify und Vercel.</p></div>
-          <div class="skill-card"><h3>Responsive Design</h3><p>C++ Projekt mit lua javascript und Datenbanken verbindungen</p></div>
-          <div class="skill-card"><h3>Custom Animations</h3><p>Sowhl Web als auch Framework design für .exe applikationen </p></div>
+          <div class="skill-card"><h3>Responsive Design</h3><p>C++-Projekt mit Lua, JS und Datenbankverbindungen</p></div>
+          <div class="skill-card"><h3>Custom Animations</h3><p>Design für Web und .exe-Anwendungen</p></div>
         </div>
       </div>
     </div>
@@ -272,7 +299,6 @@
       tw.start();
     }
 
-    // Particles.js laden aus externer JSON-Konfigurationsdatei
     particlesJS.load("particles-js", "particlesjs-config-custom.json", function() {
       console.log("particles.js config geladen");
     });
