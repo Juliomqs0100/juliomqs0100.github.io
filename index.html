@@ -5,7 +5,7 @@
   <title>Julio Marques – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <!-- Typewriter -->
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   <!-- Particles.js -->
@@ -36,7 +36,6 @@
       overflow-x: hidden;
     }
 
-    /* Hintergrund-Netz */
     #particles-js {
       position: fixed;
       width: 100%;
@@ -177,7 +176,6 @@
 </head>
 <body>
 
-  <!-- Partikel-Hintergrund -->
   <div id="particles-js"></div>
 
   <audio id="music" src="msc.mp3" loop></audio>
@@ -199,7 +197,6 @@
       </div>
     </div>
 
-    <!-- Screenshot unten -->
     <div class="config-preview animate__animated animate__fadeInUp">
       <img src="config-preview.png" alt="Config UI Vorschau">
     </div>
@@ -217,7 +214,6 @@
 
     overlay.addEventListener("click", () => {
       if (hasStarted) return;
-
       hasStarted = true;
       music.play();
 
@@ -249,66 +245,44 @@
       tw.start();
     }
 
-    // Particles.js konfigurieren
     particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 50,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: "#88b04b" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#88b04b",
+          opacity: 0.4,
+          width: 1
         },
-        "color": {
-          "value": "#88b04b"
-        },
-        "shape": {
-          "type": "circle"
-        },
-        "opacity": {
-          "value": 0.4
-        },
-        "size": {
-          "value": 3
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#88b04b",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 1,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "bounce": true
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: false,
+          straight: false,
+          bounce: true
         }
       },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "grab"
-          },
-          "onclick": {
-            "enable": false
-          },
-          "resize": true
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: false },
+          resize: true
         },
-        "modes": {
-          "grab": {
-            "distance": 140,
-            "line_linked": {
-              "opacity": 0.7
-            }
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: { opacity: 0.7 }
           }
         }
       },
-      "retina_detect": true
+      retina_detect: true
     });
   </script>
 
