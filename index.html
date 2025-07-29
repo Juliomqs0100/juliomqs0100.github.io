@@ -4,24 +4,25 @@
   <meta charset="UTF-8" />
   <title>Julio Marques – Bewerbung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     :root {
-      --bg: transparent;
+      --bg: #1e1b16;
       --text: #ecebe4;
       --highlight: #88b04b;
-      --button: #6f8f3e;
-      --button-hover: #5a732f;
-      --panel: rgba(61, 44, 35, 0.85);
-      --accent: #aec17d;
+      --button: #7a9d54;
+      --button-hover: #6b8846;
+      --panel: linear-gradient(145deg, rgba(61, 44, 35, 0.85), rgba(47, 35, 27, 0.85));
+      --accent: #d7e9af;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       width: 100%; height: 100%;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       overflow-x: hidden;
@@ -84,7 +85,7 @@
     .app-box {
       background: var(--panel);
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       max-width: 500px;
       padding: 20px;
       display: flex;
@@ -110,62 +111,73 @@
     .link-row a {
       display: block;
       padding: 10px 20px;
-      background-color: var(--button);
-      color: white;
+      background-color: transparent;
+      border: 2px solid var(--button);
+      color: var(--button);
       text-decoration: none;
       border-radius: 8px;
-      transition: background-color 0.3s ease;
-      font-weight: bold;
+      transition: all 0.3s ease;
+      font-weight: 600;
       min-width: 160px;
       text-align: center;
     }
     .link-row a:hover {
-      background-color: var(--button-hover);
-      text-shadow: 0 0 5px var(--accent);
+      background-color: var(--button);
+      color: white;
+      box-shadow: 0 0 10px var(--accent);
     }
 
     .config-preview {
       margin-top: 40px;
       background: var(--panel);
       padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      max-width: 700px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      max-width: 1000px;
       width: 100%;
       text-align: center;
-    }
-    .config-preview img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 20px;
     }
 
     .project-gallery {
       display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
       justify-content: center;
+      padding-bottom: 10px;
     }
-    .project-gallery img {
-      width: 180px;
+    .project-gallery .skill-card {
+      min-width: 220px;
+      max-width: 220px;
+      flex-shrink: 0;
+      text-align: center;
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
+    }
+    .project-gallery .skill-card img {
+      width: 100%;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
     }
-    .project-gallery img:hover {
-      transform: scale(1.05);
+    .project-gallery .skill-card:hover {
+      transform: scale(1.03);
     }
 
     .skills-ui-section {
       margin-top: 80px;
       padding: 40px 20px;
       text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
+
     .skills-title {
       font-size: 2rem;
       margin-bottom: 30px;
       color: var(--highlight);
     }
+
     .skills-grid {
       display: grid;
       gap: 20px;
@@ -173,23 +185,27 @@
       margin: 0 auto;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
+
     .skill-card {
       background: var(--panel);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 24px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       text-align: left;
-      transition: transform 0.3s ease;
+      transition: all 0.4s ease;
     }
+
     .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
     }
+
     .skill-card h3 {
       color: var(--accent);
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
+
     .skill-card p {
       color: #ccc;
       font-size: 0.95rem;
@@ -210,7 +226,7 @@
     <div class="container">
       <div class="hero">
         <div class="text-block">
-          <p class="subtext">Willkommen zu meiner animierten Bewerbung!         Julio Marques, juliomqs28@gmail.com</p>
+          <p class="subtext">Willkommen zu meiner animierten Bewerbung!<br>Julio Marques – juliomqs28@gmail.com</p>
           <div class="typewriter" id="typElement"></div>
         </div>
         <div class="app-box animate__animated" id="appBox">
@@ -223,32 +239,23 @@
         </div>
       </div>
 
-<div class="config-preview animate__animated animate__fadeInUp" style="max-width: none;">
-  <h2 class="skills-title">Haupt Projekt</h2>
- <div class="project-gallery" style="
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 20px;
-  justify-content: center;
-  padding-bottom: 10px;
-">
-  <div class="skill-card" style="min-width: 220px; max-width: 220px; flex-shrink: 0; text-align: center;">
-    <h3>Projektstruktur (VS)</h3>
-    <img src="https://raw.githubusercontent.com/Juliomqs0100/juliomqs0100.github.io/main/dfa7f029-5925-454a-90bf-d4d3a52a7eb2.png" alt="Projektmanager" style="width: 100%; border-radius: 12px;" />
-  </div>
-  <div class="skill-card" style="min-width: 220px; max-width: 220px; flex-shrink: 0; text-align: center;">
-    <h3>In-Game looks</h3>
-    <img src="https://raw.githubusercontent.com/Juliomqs0100/juliomqs0100.github.io/main/c79d99dd-a9fe-4c2d-b8c2-f84a12679fc1.png" alt="In-game" style="width: 100%; border-radius: 12px;" />
-  </div>
-  <div class="skill-card" style="min-width: 220px; max-width: 220px; flex-shrink: 0; text-align: center;">
-    <h3>In-Game Framework</h3>
-    <img src="https://raw.githubusercontent.com/Juliomqs0100/juliomqs0100.github.io/main/2d812e21-0ccd-43ce-a550-18322b653ef0.png" alt="Framework" style="width: 100%; border-radius: 12px;" />
-  </div>
-</div>
-
-
-
+      <div class="config-preview animate__animated animate__fadeInUp">
+        <h2 class="skills-title">Haupt Projekt</h2>
+        <div class="project-gallery">
+          <div class="skill-card">
+            <h3>Projektstruktur (VS)</h3>
+            <img src="https://raw.githubusercontent.com/Juliomqs0100/juliomqs0100.github.io/main/dfa7f029-5925-454a-90bf-d4d3a52a7eb2.png" alt="Projektmanager" />
+          </div>
+          <div class="skill-card">
+            <h3>In-Game looks</h3>
+            <img src="https://raw.githubusercontent.com/Juliomqs0100/juliomqs0100.github.io/main/c79d99dd-a9fe-4c2d-b8c2-f84a12679fc1.png" alt="In-game" />
+          </div>
+          <div class="skill-card">
+            <h3>In-Game Framework</h3>
+            <img src="https://raw.githubusercontent.com/Juliomqs0100/juliomqs0100.github.io/main/2d812e21-0ccd-43ce-a550-18322b653ef0.png" alt="Framework" />
+          </div>
+        </div>
+      </div>
 
       <div class="skills-ui-section animate__animated animate__fadeInUp">
         <h2 class="skills-title">Meine Skills</h2>
